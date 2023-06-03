@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const dotenv  = require('dotenv')
 const route = require('./Routes/route')
+const adminRoute = require('./Routes/adminRoute')
 const app = express()
 
 mongoose.connect('mongodb://127.0.0.1:27017/mhdrifan').then(()=>{
@@ -10,12 +11,22 @@ mongoose.connect('mongodb://127.0.0.1:27017/mhdrifan').then(()=>{
     console.log('MongoDB connecton error!');
 })
 
-app.use(express.static('public'))
-app.set('view engine','ejs')
-app.set('views','views')
+const path = require('path');
+
+// ...
+
+adminRoute.use(express.static(path.resolve(__dirname, 'public/admin')));
+
+
+route.use(express.static('public'))
+
+
+
 // route.set('view engine','ejs')
 // route.set('views','views')
 app.use('/',route)
+
+app.use('/admin',adminRoute)
 
 
 app.listen(4000,()=>{
