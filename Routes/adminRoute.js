@@ -16,6 +16,8 @@ Route.get('/billing',(req,res)=>{
 })
 Route.get('/about',(req,res)=>{
     res.render('about')
+    //oooooolaaaaa
+    
 })
 
 module.exports = Route
