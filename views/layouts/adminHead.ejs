@@ -9,6 +9,7 @@
   <title>
     Material Dashboard 2 by Creative Tim
   </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
   <!-- Nucleo Icons -->
@@ -23,8 +24,8 @@
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
-      <div class="sidenav-header">
+    <aside  class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+      <div  class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
           <img src="./img/logo-ct.png" class="navbar-brand-img h-100" alt="main_logo">
@@ -84,22 +85,16 @@
       </div>
     
     </aside>
-    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <main  class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
       <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
         <div class="container-fluid py-1 px-3">
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-              <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-              <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
-            </ol>
+           
             <h6 class="font-weight-bolder mb-0">Dashboard</h6>
           </nav>
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-              <div class="input-group input-group-outline">
-                <label class="form-label">Type here...</label>
-                <input type="text" class="form-control">
-              </div>
+             
             </div>
             <ul class="navbar-nav  justify-content-end">
               <li class="nav-item d-flex align-items-center">
@@ -109,8 +104,8 @@
                 </a>
               </li>
               <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
-                  <div id="toggle" class="sidenav-toggler-inner">
+                <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidex">
+                  <div onclick="toggleNav()"class="sidenav-toggler-inner">
                     <i class="sidenav-toggler-line"></i>
                     <i class="sidenav-toggler-line"></i>
                     <i class="sidenav-toggler-line"></i>
@@ -198,33 +193,75 @@
             </ul>
           </div>
         </div>
-        <button  >button</button>
+       
       </nav>
-      <div id="cxv" style="height: 300px;width: 500px; background-color: blue; position: absolute; z-index: 1; "  >
+      <style>
+        
+        
+        .sidenavx {
+          margin-left: auto;
+          background-color: #f1f1f1;
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      right: -200px; /* Initially hide the navigation */
+      top: 0;
+      transition: right 0.3s ease-in-out; /* Add smooth transition effect */
+          z-index: 4;
+         
+        }
+        
+        .sidenavx.open {
+      right: 0; /* Show the navigation when the 'open' class is added */
+    }
 
+        .sidenavx a {
+          display: block;
+          color: #000;
+          text-decoration: none;
+          padding: 15px;
+          border-bottom: 1px solid #ccc;
+          
+        }
+        
+        .sidenavx a:hover {
+          background-color: #ddd;
+          
+        }
+        
+        .sidenavx a{
+      text-align: center;
+        }
+
+        .undo-button {
+      margin: 10px;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+     
+    }
+        
+      </style>
+    
+      <div id="sidenavx" class="sidenavx">
+        <button class="undo-button" onclick="toggleNav()">
+          <i class="fas fa-times"></i> <!-- Cross icon using Font Awesome -->
+        </button>
+        <a href="/admin/"><p class="navtxt" >Messages</p></a>
+        <a href="/admin/about"><p class="navtxt " >About</p></a>
+        <a href="/admin/portfolio"><p class="navtxt" >portfolio</p></a>
+        <a href="/admin/orders"><p class="navtxt" >Orders</p></a>
+        <a href="/admin/logout"><p class="navtxt" >Logout</p></a>
       </div>
 
 
 
       <script>
 
-        const btn = document.getElementById('toggle')
-        const cxv = document.getElementById('cxv')
-          btn.addEventListener('click',()=>{
-        if(cxv.style.height==='300px'){
-
-          cxv.style.width='0px';
-          cxv.style.height='0px';
-        }else{
-          cxv.style.width='500px';
-          cxv.style.height='300px';
-        }
-
-
-        })
-        
-       
-        
+function toggleNav() {
+      var sidenav = document.getElementById('sidenavx');
+      sidenav.classList.toggle('open');
+    }
         
         
         </script>
