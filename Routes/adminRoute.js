@@ -1,5 +1,8 @@
 const express = require('express')
 const bodyparser = require('body-parser')
+
+const Controller = require('../controller/adminControl')
+
 const Route = express()
 
 
@@ -25,5 +28,17 @@ Route.get('/about',(req,res)=>{
 Route.get('/portfolio',(req,res)=>{
     res.render('portfolio')
 })
+Route.get('/addText',(req,res)=>{
+    res.render('addText')
+})
+Route.get('/editAbout',(req,res)=>{
+    res.render('editAbout')
+})
+
+
+// database related routes
+
+Route.post('/addText',Controller.addTextAbout);
+
 
 module.exports = Route
