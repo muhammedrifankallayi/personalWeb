@@ -1,9 +1,15 @@
 <%-include('../layouts/adminHead.ejs') %>
-
+<h3  style="text-align: center; font-family: Arial, Helvetica, sans-serif; "  >EDIT ABOUT</h3>
 <form action="" method="post" >
+    <label for="head">Healine</label>
+    <p><input  id="head" type="text" name="heading" value="<%=data.Heading%>"  placeholder="do heading.... " ></p> 
+<p>
+
+    <textarea placeholder="Write anything about you..." name="aboutMe1" id="about" cols="100" rows="20"><%=data.Description%></textarea>
 
 
-    <textarea placeholder="Write anything about you..." name="aboutMe1" id="about" cols="100" rows="20">edit something .......</textarea>
+</p>
+<input type="submit" class="btn btn-outline-danger" >
 
 
 </form>

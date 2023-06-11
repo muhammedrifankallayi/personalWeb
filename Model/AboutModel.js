@@ -4,7 +4,11 @@ const mongoose = require('mongoose')
 const AboutSchema = new mongoose.Schema({
     Description:{
         type:String,
-        require:true
+        required:true
+    },
+    Heading:{
+        type:String,
+        required:true
     }
 })
 

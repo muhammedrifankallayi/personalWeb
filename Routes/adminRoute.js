@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyparser = require('body-parser')
+const About = require('../Model/AboutModel')
 
 const Controller = require('../controller/adminControl')
 
@@ -21,8 +22,9 @@ Route.get('/',(req,res)=>{
 Route.get('/orders',(req,res)=>{
     res.render("orders")
 })
-Route.get('/about',(req,res)=>{
-    res.render('about')
+Route.get('/about',async(req,res)=>{
+    const data = await About.find() 
+    res.render('about',{data})
     
 })
 Route.get('/portfolio',(req,res)=>{
@@ -31,8 +33,10 @@ Route.get('/portfolio',(req,res)=>{
 Route.get('/addText',(req,res)=>{
     res.render('addText')
 })
-Route.get('/editAbout',(req,res)=>{
-    res.render('editAbout')
+Route.get('/editAbout',async(req,res)=>{
+    const id = req.query.id
+    const data = await About.findById({_id:id})
+    res.render('editAbout',{data})
 })
 
 
