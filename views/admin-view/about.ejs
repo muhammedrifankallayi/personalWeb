@@ -41,7 +41,7 @@ About
                     <h6 class="mb-3 text-sm">ABOUT - <%=i%></h6>
                     <span class="mb-2 text-xs">HEADING: <span class="text-dark font-weight-bold ms-sm-2"><%=data[i].Heading%></span></span>
                     <span class="mb-2 text-xs">UPDATED AT: <span class="text-dark ms-sm-2 font-weight-bold"><%=data[i].date%></span></span>
-                    <span class="text-xs"><a class="btn btn-dark" href="/admin/showAbout">SHOW</a></span>
+                    <span class="text-xs"><a class="btn btn-dark" href="/admin/showAbout?id=<%=data[i]._id%>">SHOW</a></span>
                   </div>
                   <div class="ms-auto text-end">
                     <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
@@ -49,8 +49,6 @@ About
                   </div>
                 </li>
                 <%}%>
-               
-               
               </ul>
             </div>
           </div>

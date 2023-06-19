@@ -38,6 +38,11 @@ Route.get('/editAbout',async(req,res)=>{
     const data = await About.findById({_id:id})
     res.render('editAbout',{data})
 })
+Route.get("/showAbout",async(req,res)=>{
+    const id = req.query.id
+    const data = await About.findById({_id:id})
+    res.render('showAbout',{data})
+})
 
 
 // database related routes
