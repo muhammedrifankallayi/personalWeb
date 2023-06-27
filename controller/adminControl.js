@@ -42,6 +42,7 @@ const DeleteAbout = async(req,res)=>{
     } catch (error) {
         console.log(error.message);
     }
+    //hai
 }
 
 
