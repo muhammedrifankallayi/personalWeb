@@ -3,9 +3,10 @@
 <form action="" method="post" >
     <label for="head">Healine</label>
     <p><input  id="head" type="text" name="heading" value="<%=data.Heading%>"  placeholder="do heading.... " ></p> 
+    <input type="hidden" value="<%=data._id%>"  name="id" >
 <p>
 
-    <textarea placeholder="Write anything about you..." name="aboutMe1" id="about" cols="100" rows="20"><%=data.Description%></textarea>
+    <textarea placeholder="Write anything about you..." name="about" id="about" cols="100" rows="20"><%=data.Description%></textarea>
 
 
 </p>

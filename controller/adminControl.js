@@ -21,10 +21,35 @@ const addTextAbout = async(req,res)=>{
     }
 }
 
+const EditData = async(req,res)=>{
+    try {
+        const text = req.body.about
+        const head = req.body.heading
+        const id   = req.body.id
+        await About.findOneAndUpdate({_id:id},{$set:{Heading:head,Description:text}});
+        res.redirect('/admin/about');
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+// to delete 
+
+const DeleteAbout = async(req,res)=>{
+    try {
+        const id = req.query.id
+        await About.findByIdAndDelete({_id:id});
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
 
 
 
 
 module.exports={
-    addTextAbout
+    addTextAbout,
+    EditData,
+    DeleteAbout
 }

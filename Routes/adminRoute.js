@@ -48,6 +48,8 @@ Route.get("/showAbout",async(req,res)=>{
 // database related routes
 
 Route.post('/addText',Controller.addTextAbout);
+Route.post('/Editabout',Controller.EditData)
+Route.get('/delete',Controller.DeleteAbout)
 
 
 module.exports = Route
