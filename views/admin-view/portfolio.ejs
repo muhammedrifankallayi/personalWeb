@@ -1,5 +1,32 @@
 <%-include('../layouts/adminHead')%>
 portfolio
+
+
+
+
+<div  class="form-container" >
+<form action="" method="post" enctype="multipart/form-data" >
+
+  
+  <input id="forminput" type="text"  name="caption" >
+  
+  <br>
+
+  <input   type="file" name="image"  onchange="showPreview(event)" >
+
+  <div id="image-preview" class="image-preview"></div>
+
+
+
+
+
+
+</form>
+
+
+
+
+</div>
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
@@ -93,6 +120,53 @@ portfolio
           </div>
           
         </div>
+
+
+        <style>
+          .form-container {
+            margin: 20px;
+          }
+      
+          .form-container input[type="text"],
+          .form-container input[type="file"] {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+          }
+
+
+          .image-preview {
+      margin-top: 20px;
+    }
+
+    .image-preview img {
+      max-width: 300px;
+      max-height: 300px;
+      margin-top: 10px;
+    }
+
+        </style>
+
+<script>
+  function showPreview(event) {
+    var file = event.target.files[0];
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      var preview = document.getElementById("image-preview");
+      var image = document.createElement("img");
+      image.src = e.target.result;
+      preview.innerHTML = "";
+      preview.appendChild(image);
+    };
+
+    reader.readAsDataURL(file);
+  }
+</script>
+
+
 
 
         <!-- xxxxx -->

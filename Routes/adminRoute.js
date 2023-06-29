@@ -4,6 +4,8 @@ const About = require('../Model/AboutModel')
 
 const Controller = require('../controller/adminControl')
 
+const multer = require('../middleware/multer')
+
 const Route = express()
 
 
@@ -50,6 +52,7 @@ Route.get("/showAbout",async(req,res)=>{
 Route.post('/addText',Controller.addTextAbout);
 Route.post('/Editabout',Controller.EditData)
 Route.get('/delete',Controller.DeleteAbout)
+Route.post('/portfolia',multer.upload('image'),Controller.SubmitImage)
 
 
 module.exports = Route

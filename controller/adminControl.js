@@ -39,12 +39,19 @@ const DeleteAbout = async(req,res)=>{
     try {
         const id = req.query.id
         await About.findByIdAndDelete({_id:id});
+        res.redirect("/admin/about")
     } catch (error) {
         console.log(error.message);
     }
-    //hai
+    
 }
-
+const SubmitImage = async(req,res)=>{
+    try {
+       // we want to create model 
+    } catch (error) {
+        error.message
+    }
+}
 
 
 
